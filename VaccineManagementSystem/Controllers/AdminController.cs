@@ -116,5 +116,53 @@ namespace VaccineManagementSystem.Controllers
             }
             return View(registerViewModel);
         }
+        public ActionResult DeleteHospital(int id)
+        {
+            Hospital hospital = new Hospital();
+            hospital = adminControllerService.GetHospitalById(id);
+            return View(hospital);
+        }
+        [HttpPost]
+
+        public ActionResult DeleteHospital(Hospital hospital)
+        {
+            
+                adminControllerService.DeleteHospitalById(hospital.Id);
+
+                return RedirectToAction("Index", "Admin");
+            
+        }
+        public ActionResult DeleteDistributor(int id)
+        {
+            Distributor distributor = new Distributor();
+            distributor = adminControllerService.GetDistributorById(id);
+            return View(distributor);
+        }
+        [HttpPost]
+
+        public ActionResult DeleteDistributor(Distributor distributor)
+        {
+
+            adminControllerService.DeleteDistributorById(distributor.Id);
+
+            return RedirectToAction("Index", "Admin");
+
+        }
+        public ActionResult DeleteManufacturer(int id)
+        {
+            Manufacturer manufacturer = new Manufacturer();
+            manufacturer = adminControllerService.GetManufacturerById(id);
+            return View(manufacturer);
+        }
+        [HttpPost]
+
+        public ActionResult DeleteManufacturer(Manufacturer manufacturer)
+        {
+
+            adminControllerService.DeleteManufacturerById(manufacturer.Id);
+
+            return RedirectToAction("Index", "Admin");
+
+        }
     }
 }

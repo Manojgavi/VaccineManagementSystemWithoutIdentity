@@ -66,5 +66,9 @@ namespace VaccineManagementSystem.Proxy
 
             return manufacturer;
         }
+        public bool IsInDb(string email)
+        {
+            return manufacturerQueryService.IsInDb(email);
+        }
     }
 }

@@ -66,5 +66,9 @@ namespace VaccineManagementSystem.Proxy
 
             return hospital;
         }
+        public bool IsInDb(string email)
+        {
+            return hospitalQueryService.IsInDb(email);
+        }
     }
 }

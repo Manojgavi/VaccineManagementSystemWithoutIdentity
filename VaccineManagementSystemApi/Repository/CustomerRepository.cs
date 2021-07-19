@@ -39,8 +39,17 @@ namespace VaccineManagementSystemApi.Repository
 
         public void PostCustomer(Customer customer)
         {
-            dbContext.Customers.Add(customer);
-            dbContext.SaveChanges();
+            //try
+            //{
+                dbContext.Customers.Add(customer);
+                dbContext.SaveChanges();
+                //return true;
+            //}
+            //catch(Exception)
+            //{
+            //    return false;
+            //}
+            
 
         }
         public void EditCustomer(Customer customer)

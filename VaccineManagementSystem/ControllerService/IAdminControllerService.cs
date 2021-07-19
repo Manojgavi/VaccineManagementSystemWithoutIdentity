@@ -15,5 +15,12 @@ namespace VaccineManagementSystem.ControllerService
         RegisterViewModel UserFromHospital(int id);
         RegisterViewModel UserFromDistributor(int id);
         RegisterViewModel UserFromManufacturer(int id);
+        Hospital GetHospitalById(int id);
+        Distributor GetDistributorById(int id);
+        Manufacturer GetManufacturerById(int id);
+        void DeleteHospitalById(int id);
+        void DeleteDistributorById(int id);
+        void DeleteManufacturerById(int id);
+        
     }
 }

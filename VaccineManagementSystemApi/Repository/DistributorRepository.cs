@@ -75,6 +75,18 @@ namespace VaccineManagementSystemApi.Repository
             hospitals=dbContext.Hospitals.Select(m => m.Location).ToList();
             return hospitals;
         }
+        public bool IsInDb(string email)
+        {
+            var obj = dbContext.Distributors.FirstOrDefault(m => m.Email == email);
+            if(obj==null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
 
     }
 }

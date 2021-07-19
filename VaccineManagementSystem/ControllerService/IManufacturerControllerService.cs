@@ -10,5 +10,6 @@ namespace VaccineManagementSystem.ControllerService
     {
         void PostManufacturer(Manufacturer manufacturer );
         Manufacturer Create();
+        bool IsInDb(string email);
     }
 }

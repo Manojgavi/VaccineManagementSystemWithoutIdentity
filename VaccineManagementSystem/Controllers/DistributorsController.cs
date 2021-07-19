@@ -23,8 +23,13 @@ namespace VaccineManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Distributor distributor)
         {
+            
             if(ModelState.IsValid)
             {
+                if(distributorControllerService.IsInDb(distributor.Email))
+                {
+                    return Content("Email already registered");
+                }
                 distributorControllerService.PostDistributor(distributor);
                 return Content("Successfully Registered");
             }

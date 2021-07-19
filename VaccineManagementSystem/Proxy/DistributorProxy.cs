@@ -72,5 +72,9 @@ namespace VaccineManagementSystem.Proxy
             locations = distributorQueryService.GetLocations();
             return locations;
         }
+        public bool IsInDb(string email)
+        {
+            return distributorQueryService.IsInDb(email);
+        }
     }
 }

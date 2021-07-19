@@ -13,6 +13,7 @@ namespace VaccineManagementSystem.Proxy
         List<Manufacturer> GetAllManufacturers();
         void EditManufacturer(Manufacturer manufacturer);
         void DeleteManufacturerById(int id);
+        bool IsInDb(string email);
         Manufacturer GetManufacturerById(int id);
     }
 }

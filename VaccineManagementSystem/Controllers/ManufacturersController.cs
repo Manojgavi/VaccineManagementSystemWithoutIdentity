@@ -8,14 +8,14 @@ namespace VaccineManagementSystem.Controllers
 
     public class ManufacturersController : Controller
     {
-        private readonly IManufacturerControllerService controllerService;
-        public ManufacturersController(IManufacturerControllerService controlService)
+        private readonly IManufacturerControllerService manufacturerControllerService;
+        public ManufacturersController(IManufacturerControllerService manufacturerControllerService)
         {
-            this.controllerService = controlService;
+            this.manufacturerControllerService = manufacturerControllerService;
         }
         public ActionResult Create()
         {
-            Manufacturer manufacturer=controllerService.Create();
+            Manufacturer manufacturer= manufacturerControllerService.Create();
             return View(manufacturer);
         }
         [HttpPost]
@@ -24,7 +24,11 @@ namespace VaccineManagementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                controllerService.PostManufacturer(manufacturer);
+                if (manufacturerControllerService.IsInDb(manufacturer.Email))
+                {
+                    return Content("Email already registered");
+                }
+                manufacturerControllerService.PostManufacturer(manufacturer);
                 return Content("Successfully Registered");
             }
             return View();

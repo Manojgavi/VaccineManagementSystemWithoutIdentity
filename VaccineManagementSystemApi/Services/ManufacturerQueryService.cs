@@ -37,5 +37,9 @@ namespace VaccineManagementSystemApi.Services
             manufacturerDto = AutoMapper.Mapper.Map<Repository.Entity.Manufacturer, Manufacturer>(manufacturer);
             return manufacturerDto;
         }
+        public bool IsInDb(string email)
+        {
+            return repository.IsInDb(email);
+        }
     }
 }

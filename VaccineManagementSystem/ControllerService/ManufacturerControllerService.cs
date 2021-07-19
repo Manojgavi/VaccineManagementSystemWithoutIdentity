@@ -33,5 +33,9 @@ namespace VaccineManagementSystem.ControllerService
             };
         return manufacturer;
         }
+        public bool IsInDb(string email)
+        {
+            return manufacturerProxy.IsInDb(email);
+        }
     }
 }

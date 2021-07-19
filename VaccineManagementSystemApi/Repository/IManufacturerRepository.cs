@@ -14,5 +14,6 @@ namespace VaccineManagementSystemApi.Repository
         void PostManufacturer(Manufacturer manufacturer);
         void DeleteManufacturerById(int id);
         void EditManufacturer(Manufacturer manufacturer);
+        bool IsInDb(string email);
     }
 }

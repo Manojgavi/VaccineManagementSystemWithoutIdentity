@@ -6,10 +6,10 @@ namespace VaccineManagementSystem.Controllers
 {
     public class HospitalsController : Controller
     {
-        private readonly IHospitalControllerService controlService;
-        public HospitalsController(IHospitalControllerService controlService)
+        private readonly IHospitalControllerService hospitalControllerService;
+        public HospitalsController(IHospitalControllerService hospitalControllerService)
         {
-            this.controlService = controlService;
+            this.hospitalControllerService = hospitalControllerService;
         }
         public ActionResult Create()
         {
@@ -21,7 +21,11 @@ namespace VaccineManagementSystem.Controllers
         {
             if(ModelState.IsValid)
             {
-                controlService.PostHospital(hospital);
+                if (hospitalControllerService.IsInDb(hospital.Email))
+                {
+                    return Content("Email already registered");
+                }
+                hospitalControllerService.PostHospital(hospital);
                 return Content("Succesfully registered");
             }
             return View(hospital);

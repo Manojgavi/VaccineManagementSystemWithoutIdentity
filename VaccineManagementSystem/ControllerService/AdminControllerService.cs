@@ -158,5 +158,47 @@ namespace VaccineManagementSystem.ControllerService
             };
             return user;
         }
+        public Hospital GetHospitalById(int id)
+        {
+            Hospital hospitalView = new Hospital();
+            Models.Hospital hospital = new Models.Hospital();
+            hospital = hospitalProxy.GetHospitalById(id);
+            hospitalView = AutoMapper.Mapper.Map<Models.Hospital, ViewModel.Hospital>(hospital);
+            return hospitalView;
+        }
+        public Distributor GetDistributorById(int id)
+        {
+            Distributor distributorView = new Distributor();
+            Models.Distributor distributor = new Models.Distributor();
+            distributor = distributorProxy.GetDistributorById(id);
+            distributorView = AutoMapper.Mapper.Map<Models.Distributor, ViewModel.Distributor>(distributor);
+            return distributorView;
+        }
+        public Manufacturer GetManufacturerById(int id)
+        {
+            Manufacturer manufacturerView = new Manufacturer();
+            Models.Manufacturer manufacturer = new Models.Manufacturer();
+            manufacturer = manufacturerProxy.GetManufacturerById(id);
+            manufacturerView = AutoMapper.Mapper.Map<Models.Manufacturer, ViewModel.Manufacturer>(manufacturer);
+            return manufacturerView;
+        }
+        public void DeleteHospitalById(int id)
+        {
+            
+            hospitalProxy.DeleteHospitalById(id);
+            
+        }
+        public void DeleteDistributorById(int id)
+        {
+            
+             distributorProxy.DeleteDistributorById(id);
+            
+        }
+        public void DeleteManufacturerById(int id)
+        {
+           
+            manufacturerProxy.DeleteManufacturerById(id);
+            
+        }
     }
 }

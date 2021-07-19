@@ -38,7 +38,7 @@ namespace VaccineManagementSystem.Controllers
             {
                 if (accountControllerService.Login(loginViewModel))
                 {
-                    FormsAuthentication.SetAuthCookie(loginViewModel.Email, false);
+                    FormsAuthentication.SetAuthCookie(loginViewModel.Email, true);
                     Session["UserEmail"] = loginViewModel.Email;
                     return RedirectToAction("Redirect");
                 }

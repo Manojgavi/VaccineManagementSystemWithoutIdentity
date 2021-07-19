@@ -43,5 +43,9 @@ namespace VaccineManagementSystemApi.Services
             locations = repository.GetLocations();
             return locations;
         }
+        public bool IsInDb(string email)
+        {
+            return repository.IsInDb(email);
+        }
     }
 }

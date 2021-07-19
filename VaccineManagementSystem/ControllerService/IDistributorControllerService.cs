@@ -10,5 +10,6 @@ namespace VaccineManagementSystem.ControllerService
     {
         Distributor Create();
         void PostDistributor(Distributor distributor);
+        bool IsInDb(string email);
     }
 }

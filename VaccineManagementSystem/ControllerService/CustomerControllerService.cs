@@ -35,5 +35,6 @@ namespace VaccineManagementSystem.ControllerService
             customerModel = AutoMapper.Mapper.Map<ViewModel.Customer, Models.Customer>(customer);
             proxy.PostCustomer(customerModel);
         }
+        
     }
 }

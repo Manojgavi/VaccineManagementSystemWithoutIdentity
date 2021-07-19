@@ -15,5 +15,6 @@ namespace VaccineManagementSystem.Proxy
         List<string> GetLocations();
         void DeleteDistributorById(int id);
         Distributor GetDistributorById(int id);
+        bool IsInDb(string email);
     }
 }

@@ -30,5 +30,9 @@ namespace VaccineManagementSystem.ControllerService
             distributorModel = AutoMapper.Mapper.Map<ViewModel.Distributor, Models.Distributor>(distributor);
             proxy.PostDistributor(distributorModel);
         }
+        public bool IsInDb(string email)
+        {
+           return proxy.IsInDb(email);
+        }
     }
 }

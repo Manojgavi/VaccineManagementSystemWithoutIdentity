@@ -11,5 +11,6 @@ namespace VaccineManagementSystemApi.Services
     {
         Manufacturer GetManufacturerById(int id);
         List<Manufacturer> GetAllManufacturers();
+        bool IsInDb(string email);
     }
 }

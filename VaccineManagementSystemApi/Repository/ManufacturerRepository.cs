@@ -63,5 +63,17 @@ namespace VaccineManagementSystemApi.Repository
             dbContext.Entry(manufacturer).State = EntityState.Modified;
             dbContext.SaveChanges();
         }
+        public bool IsInDb(string email)
+        {
+            var obj = dbContext.Manufacturers.FirstOrDefault(m => m.Email == email);
+            if (obj == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }

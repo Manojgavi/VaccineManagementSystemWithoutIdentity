@@ -10,5 +10,6 @@ namespace VaccineManagementSystem.ControllerService
     {
         void PostHospital(Hospital hospital);
         List<Hospital> GetHospitals();
+        bool IsInDb(string email);
     }
 }

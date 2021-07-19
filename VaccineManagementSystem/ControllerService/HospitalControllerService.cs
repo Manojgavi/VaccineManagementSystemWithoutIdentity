@@ -29,5 +29,9 @@ namespace VaccineManagementSystem.ControllerService
             }
             return vaccineTypeView;
         }
+        public bool IsInDb(string email)
+        {
+            return proxy.IsInDb(email);
+        }
     }
 }
