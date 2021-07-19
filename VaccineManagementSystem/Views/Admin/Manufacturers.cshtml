@@ -1,0 +1,63 @@
+﻿@model IEnumerable<VaccineManagementSystem.ViewModel.Manufacturer>
+
+@{
+    ViewBag.Title = "Manufacturers";
+}
+
+<h2>Manufacturers</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ManagerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        
+        @*<th>
+            @Html.DisplayNameFor(model => model.VaccineTypeId)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ManagerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        
+        @*<td>
+            @Html.DisplayFor(modelItem => item.VaccineTypeId)
+        </td>*@
+        <td>
+           
+            @Html.ActionLink("Approve", "ApproveManufacturer", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "DeleteManufacturer", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

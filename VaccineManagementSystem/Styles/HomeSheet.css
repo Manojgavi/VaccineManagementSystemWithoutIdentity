@@ -1,0 +1,30 @@
+﻿body {
+    background-image: url('../Images/Vaccine-Management-System-Where-Intelligence-meets-Medicine (1).jpg');
+}
+
+.row {
+    margin-top: 500px;
+    width: 100%;
+    background-color: turquoise;
+    border-radius: 20px;
+    opacity: 80%;
+}
+
+.button {
+    background-color: orangered;
+    color: white;
+    width: 200px;
+    text-decoration: none;
+    color: #FFFFFF;
+    
+}
+    .button:hover {
+        background-color: red;
+        color: white;
+        width: 200px;
+        text-decoration: none;
+        color: #FFFFFF;
+    }
+p {
+    font-size: 1.5em;
+}

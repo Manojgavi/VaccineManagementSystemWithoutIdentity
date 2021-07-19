@@ -1,0 +1,52 @@
+﻿body {
+    background-color: #f74a4a;
+    
+    
+}
+.form-body {
+    background-color: #f6f8fa;
+    margin: auto;
+    text-align: left;
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 20px;
+    margin-top: 75px;
+    font-size: 1.2em;
+    padding-left: 50px;
+    font-family: monospace;
+    opacity:90%;
+   
+}
+.text-box{
+    margin-right:0px;
+}
+.form-fields
+{
+    margin-Top:50px;
+    width:100%;
+}
+.submit{
+    background-color:green;
+    border-radius:5px;
+    width:500px;
+    color:#ffffff;
+    font-size:1.2em;
+}
+.editor{
+    border:2px solid black;
+}
+
+.error{
+    border:2px solid red;
+    color:red;
+}
+.red-text {
+    padding-left: 40px;
+    color: red;
+}
+.input-validation-error {
+    border: 2px solid red;
+}
+.field-validation-error {
+    color: red;
+}
