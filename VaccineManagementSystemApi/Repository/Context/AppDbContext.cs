@@ -29,6 +29,8 @@ namespace VaccineManagementSystemApi.Repository.Context
         public virtual DbSet<VaccineType> VaccineTypes { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<UserRole> UserRoles { get; set; }
+        public virtual DbSet<HospitalOrders> HospitalOrders { get; set; }
+        public virtual DbSet<HospitalVaccines> HospitalVaccines { get; set; }
 
 
     }

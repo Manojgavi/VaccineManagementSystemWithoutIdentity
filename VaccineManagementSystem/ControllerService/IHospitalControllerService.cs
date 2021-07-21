@@ -14,6 +14,8 @@ namespace VaccineManagementSystem.ControllerService
         List<Hospital> GetAvailHospitals();
         List<Models.Customer> GetCustomersForHospital(string email);
         void Vaccinated(int id, int status);
+        HospitalOrdersViewModel HospitalOrder();
+        void PostHospitalOrders(HospitalOrdersViewModel hospitalOrdersViewModel, string email);
         List<CustomerOrdersViewModel> GetCustomerOrdersViewModel(string email);
     }
 }

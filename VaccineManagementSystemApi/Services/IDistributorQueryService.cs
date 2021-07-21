@@ -11,6 +11,7 @@ namespace VaccineManagementSystemApi.Services
     {
         Distributor GetDistributorById(int id);
         List<Distributor> GetAllDistributors();
+        List<Distributor> GetAvailDistributors();
         List<string> GetLocations();
         bool IsInDb(string email);
     }

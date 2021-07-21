@@ -20,7 +20,10 @@ namespace VaccineManagementSystem.App_Start
             Mapper.CreateMap<VaccineManagementSystemApi.DTO.User, VaccineManagementSystem.Models.User>();
             Mapper.CreateMap<VaccineManagementSystem.Models.UserRole, VaccineManagementSystemApi.DTO.UserRole>();
             Mapper.CreateMap<VaccineManagementSystemApi.DTO.UserRole, VaccineManagementSystem.Models.UserRole>();
-            
+            Mapper.CreateMap<VaccineManagementSystem.Models.HospitalOrders, VaccineManagementSystemApi.DTO.HospitalOrders>();
+            Mapper.CreateMap<VaccineManagementSystemApi.DTO.HospitalOrders, VaccineManagementSystem.Models.HospitalOrders>();
+
+
             Mapper.CreateMap<VaccineManagementSystemApi.Repository.Entity.UserRole, VaccineManagementSystemApi.DTO.UserRole>();
             Mapper.CreateMap<VaccineManagementSystemApi.DTO.UserRole, VaccineManagementSystemApi.Repository.Entity.UserRole>();
             Mapper.CreateMap<VaccineManagementSystemApi.Repository.Entity.User, VaccineManagementSystemApi.DTO.User>();
@@ -35,6 +38,9 @@ namespace VaccineManagementSystem.App_Start
             Mapper.CreateMap<VaccineManagementSystemApi.DTO.Manufacturer, VaccineManagementSystemApi.Repository.Entity.Manufacturer>();
             Mapper.CreateMap<VaccineManagementSystemApi.Repository.Entity.Distributor, VaccineManagementSystemApi.DTO.Distributor>();
             Mapper.CreateMap<VaccineManagementSystemApi.DTO.Distributor, VaccineManagementSystemApi.Repository.Entity.Distributor>();
+            Mapper.CreateMap<VaccineManagementSystemApi.Repository.Entity.HospitalOrders, VaccineManagementSystemApi.DTO.HospitalOrders>();
+            Mapper.CreateMap<VaccineManagementSystemApi.DTO.HospitalOrders, VaccineManagementSystemApi.Repository.Entity.HospitalOrders>();
+
 
             Mapper.CreateMap<ViewModel.UserRole, Models.UserRole>();
             Mapper.CreateMap<Models.UserRole, ViewModel.UserRole>();
@@ -50,6 +56,8 @@ namespace VaccineManagementSystem.App_Start
             Mapper.CreateMap<Models.Manufacturer, ViewModel.Manufacturer>();
             Mapper.CreateMap<ViewModel.Distributor, Models.Distributor>();
             Mapper.CreateMap<Models.Distributor, ViewModel.Distributor>();
+
+            
 
         }
     }

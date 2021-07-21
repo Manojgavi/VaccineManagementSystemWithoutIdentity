@@ -44,6 +44,27 @@ namespace VaccineManagementSystemApi.Repository
             
             return distributorsNotInDb;
         }
+        public List<Distributor> GetAvailDistributors()
+        {
+            List<Distributor> distributors = new List<Distributor>();
+            List<Distributor> distributorsNotInDb = new List<Distributor>();
+            distributors = dbContext.Distributors.ToList();
+            List<string> emails = new List<string>();
+            emails = dbContext.Users.Select(m => m.Email).ToList();
+            foreach (var distributor in distributors)
+            {
+                if (emails.Contains(distributor.Email))
+                {
+                    distributorsNotInDb.Add(distributor);
+                }
+                else
+                {
+                    continue;
+                }
+            }
+
+            return distributorsNotInDb;
+        }
         //public List<Distributor> GetAllDistributors()
         //{
         //    var distributors = dbContext.Distributors.ToList();

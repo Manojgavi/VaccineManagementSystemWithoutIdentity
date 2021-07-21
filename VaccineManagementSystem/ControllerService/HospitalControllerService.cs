@@ -14,8 +14,12 @@ namespace VaccineManagementSystem.ControllerService
         private readonly IHospitalProxy proxy;
         private readonly ICustomerProxy customerproxy;
         private readonly IVaccineTypeProxy vaccineProxy;
-        public HospitalControllerService(IVaccineTypeProxy vaccineProxy, IHospitalProxy proxy, ICustomerProxy customerproxy)
+        private readonly IOrdersProxy ordersProxy;
+        private readonly IDistributorProxy distributorProxy;
+        public HospitalControllerService(IDistributorProxy distributorProxy,IOrdersProxy ordersProxy, IVaccineTypeProxy vaccineProxy, IHospitalProxy proxy, ICustomerProxy customerproxy)
         {
+            this.distributorProxy = distributorProxy;
+            this.ordersProxy = ordersProxy;
             this.vaccineProxy = vaccineProxy;
             this.proxy = proxy;
             this.customerproxy = customerproxy;
@@ -98,6 +102,29 @@ namespace VaccineManagementSystem.ControllerService
             }
 
             return customerOrdersViewModels;
+        }
+        public HospitalOrdersViewModel HospitalOrder()
+        {
+            
+            HospitalOrdersViewModel hospitalOrdersViewModel = new HospitalOrdersViewModel()
+            {
+                VaccineTypes=vaccineProxy.GetAllVaccineTypes(),
+                Distributors = distributorProxy.GetAvailDistributors()
+            };
+            return hospitalOrdersViewModel;
+        }
+        public void PostHospitalOrders(HospitalOrdersViewModel hospitalOrdersViewModel,string email)
+        {
+            Models.Hospital hospital = new Models.Hospital();
+            hospital = proxy.GetHospitalByEmail(email);
+            Models.HospitalOrders orders = new Models.HospitalOrders()
+            {
+                HospitalId = hospital.Id,
+                Orders = hospitalOrdersViewModel.Order,
+                VaccineTypeId = hospitalOrdersViewModel.VaccineTypeId,
+                DistributorId = hospitalOrdersViewModel.DistributorId
+            };
+            ordersProxy.PlaceHospitalOrder(orders);
         }
     }
 }

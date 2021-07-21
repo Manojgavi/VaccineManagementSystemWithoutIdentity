@@ -67,6 +67,32 @@ namespace VaccineManagementSystem.Controllers
             }
             
         }
+        public ActionResult Orders(int id)
+        {
+            HospitalOrdersViewModel hospitalOrdersViewModel = new HospitalOrdersViewModel();
+            hospitalOrdersViewModel = hospitalControllerService.HospitalOrder();
+            hospitalOrdersViewModel.VaccineTypeId = id;
+            return View(hospitalOrdersViewModel);
+        }
+        [HttpPost]
+        public ActionResult Orders(HospitalOrdersViewModel hospital)
+        {
+            if(ModelState.IsValid)
+            {
+                try
+                {
+                    hospitalControllerService.PostHospitalOrders(hospital, Session["UserEmail"].ToString());
+                    return RedirectToAction("CustomerOrders");
+                }
+                catch (NullReferenceException)
+                {
+
+                    return RedirectToAction("Logout", "Accounts");
+                }
+
+            }
+            return View(hospital);
+        }
         public ActionResult Vaccinated(int id)
         {
             hospitalControllerService.Vaccinated(id, 1);

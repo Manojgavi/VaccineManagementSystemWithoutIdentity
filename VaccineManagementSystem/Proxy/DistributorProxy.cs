@@ -39,6 +39,18 @@ namespace VaccineManagementSystem.Proxy
             return distributor;
 
         }
+        public List<Distributor> GetAvailDistributors()
+        {
+            List<VaccineManagementSystemApi.DTO.Distributor> distributorDtoList = new List<VaccineManagementSystemApi.DTO.Distributor>();
+            distributorDtoList = distributorQueryService.GetAvailDistributors();
+            List<Distributor> distributor = new List<Distributor>();
+            foreach (var distributorDto in distributorDtoList)
+            {
+                distributor.Add(Mapper.Map<VaccineManagementSystemApi.DTO.Distributor, Distributor>(distributorDto));
+            }
+            return distributor;
+
+        }
 
         public void EditDistributor(Distributor distributor)
         {

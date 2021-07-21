@@ -28,6 +28,19 @@ namespace VaccineManagementSystemApi.Services
 
             return distributorDto;
         }
+        public List<Distributor> GetAvailDistributors()
+        {
+            List<Repository.Entity.Distributor> distributors = new List<Repository.Entity.Distributor>();
+
+            distributors = repository.GetAvailDistributors();
+            List<Distributor> distributorDto = new List<Distributor>();
+            foreach (var distributor in distributors)
+            {
+                distributorDto.Add(AutoMapper.Mapper.Map<Repository.Entity.Distributor, Distributor>(distributor));
+            }
+
+            return distributorDto;
+        }
 
         public Distributor GetDistributorById(int id)
         {
