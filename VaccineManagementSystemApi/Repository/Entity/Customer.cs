@@ -52,11 +52,13 @@ namespace VaccineManagementSystemApi.Repository.Entity
         [Display(Name = "Nearby Hospital")]
         public int HospitalId { get; set; }
         public virtual Hospital Hospital { get; set; }
+        
 
 
         [Required(ErrorMessage = "Please Choose a Vaccine Type")]
         [Display(Name = "Vaccine Type")]
         public int VaccineTypeId { get; set; }
         public VaccineType VaccineType { get; set; }
+        public string Status { get; set; }
     }
 }

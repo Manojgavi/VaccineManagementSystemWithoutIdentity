@@ -30,5 +30,9 @@ namespace VaccineManagementSystem.Controllers
             }
             return View(hospital);
         }
+        public ActionResult CustomerOrders()
+        {
+            return View();
+        }
     }
 }

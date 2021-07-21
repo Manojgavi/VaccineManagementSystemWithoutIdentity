@@ -44,6 +44,27 @@ namespace VaccineManagementSystemApi.Repository
 
             return hospitalsNotInDb;
         }
+        public List<Hospital> GetAvailHospitals()
+        {
+            List<Hospital> hospitals = new List<Hospital>();
+            List<Hospital> hospitalsNotInDb = new List<Hospital>();
+            hospitals = dbContext.Hospitals.ToList();
+            List<string> emails = new List<string>();
+            emails = dbContext.Users.Select(m => m.Email).ToList();
+            foreach (var hospital in hospitals)
+            {
+                if (emails.Contains(hospital.Email))
+                {
+                    hospitalsNotInDb.Add(hospital);
+                }
+                else
+                {
+                    continue;
+                }
+            }
+
+            return hospitalsNotInDb;
+        }
 
         public Hospital GetHospitalById(int id)
         {

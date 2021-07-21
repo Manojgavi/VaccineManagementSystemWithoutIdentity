@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using VaccineManagementSystem.ControllerService;
 using VaccineManagementSystem.ViewModel;
@@ -23,8 +24,17 @@ namespace VaccineManagementSystem.Controllers
         {
             if(ModelState.IsValid)
             {
-                controllerService.PostCustomer(customer);
-                return Content("Successfully Registered");
+                try
+                {
+                    controllerService.PostCustomer(customer);
+                    return Content("Successfully Registered");
+                }
+                //controllerService.PostCustomer(customer);
+                //return Content("Successfully Registered");
+                catch(Exception)
+                {
+                    return HttpNotFound();
+                }
             }
             return View(customer);
         }

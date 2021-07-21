@@ -39,6 +39,18 @@ namespace VaccineManagementSystem.Proxy
             return hospital;
 
         }
+        public List<Hospital> GetAvailHospitals()
+        {
+            List<VaccineManagementSystemApi.DTO.Hospital> hospitalDtoList = new List<VaccineManagementSystemApi.DTO.Hospital>();
+            hospitalDtoList = hospitalQueryService.GetAvailHospitals();
+            List<Hospital> hospital = new List<Hospital>();
+            foreach (var hospitalDto in hospitalDtoList)
+            {
+                hospital.Add(Mapper.Map<VaccineManagementSystemApi.DTO.Hospital, Hospital>(hospitalDto));
+            }
+            return hospital;
+
+        }
 
         public void EditHospital(Hospital hospital)
         {

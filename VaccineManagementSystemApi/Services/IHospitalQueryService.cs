@@ -12,5 +12,6 @@ namespace VaccineManagementSystemApi.Services
         Hospital GetHospitalById(int id);
         List<Hospital> GetAllHospitals();
         bool IsInDb(string email);
+        List<Hospital> GetAvailHospitals();
     }
 }

@@ -6,6 +6,10 @@ namespace VaccineManagementSystem.ViewModel
 {
     public class Customer
     {
+        public Customer()
+        {
+            Status = "Registered";
+        }
         public int Id { get; set; }
 
 
@@ -18,6 +22,7 @@ namespace VaccineManagementSystem.ViewModel
         [Required(ErrorMessage = "Date of birth is Mandatory")]
         
         [Display(Name = "Date of Birth")]
+        [MinimumAge(18,ErrorMessage="Age should be greater than 18")]
         [DataType(DataType.Date, ErrorMessage = "Please Enter a Vaild Date")]
         public DateTime DateOfBirth { get; set; }
 
@@ -47,6 +52,7 @@ namespace VaccineManagementSystem.ViewModel
         [Display(Name = "Aadhar Number")]
         [RegularExpression(@"[0-9]{12}", ErrorMessage = "Please Enter Valid Aadhar Number")]
         public string AadharNumber { get; set; }
+        public string Status { get; set; }
 
 
         [Required(ErrorMessage = "Please choose a Hospital")]
@@ -59,5 +65,6 @@ namespace VaccineManagementSystem.ViewModel
         [Display(Name = "Vaccine Type")]
         public int VaccineTypeId { get; set; }
         public IList<VaccineType> VaccineType { get; set; }
+        
     }
 }

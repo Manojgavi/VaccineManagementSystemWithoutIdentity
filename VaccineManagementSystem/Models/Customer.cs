@@ -20,10 +20,12 @@ namespace VaccineManagementSystem.Models
         public string PhoneNumber { get; set; }
 
         public string AadharNumber { get; set; }
+        public string Status { get; set; }
 
         public int HospitalId { get; set; }
         public virtual Hospital Hospital { get; set; }
         public int VaccineTypeId { get; set; }
         public VaccineType VaccineType { get; set; }
+        
     }
 }

@@ -23,7 +23,7 @@ namespace VaccineManagementSystem.ControllerService
         {
             Customer customer = new Customer()
             {
-                Hospital = hospitalControllerService.GetHospitals(),
+                Hospital = hospitalControllerService.GetAvailHospitals(),
                 VaccineType = vaccineTypeControllerService.GetVaccineTypes()
             };
             return customer;

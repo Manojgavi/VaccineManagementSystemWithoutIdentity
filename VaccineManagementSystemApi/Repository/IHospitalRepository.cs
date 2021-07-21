@@ -15,5 +15,6 @@ namespace VaccineManagementSystemApi.Repository
         void DeleteHospitalById(int id);
         void EditHospital(Hospital hospital);
         bool IsInDb(string email);
+        List<Hospital> GetAvailHospitals();
     }
 }

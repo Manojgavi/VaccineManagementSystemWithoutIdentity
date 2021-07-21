@@ -25,7 +25,7 @@ namespace VaccineManagementSystemApi.Repository
 
         public List<Customer> GetAllCustomers()
         {
-            var customers = dbContext.Customers.ToList();
+            var customers = dbContext.Customers.Where(m=>m.Status=="Registered").ToList();
 
             return customers;
         }

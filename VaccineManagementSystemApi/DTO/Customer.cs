@@ -25,5 +25,6 @@ namespace VaccineManagementSystemApi.DTO
         public virtual Hospital Hospital { get; set; }
         public int VaccineTypeId { get; set; }
         public VaccineType VaccineType { get; set; }
+        public string Status { get; set; }
     }
 }

@@ -198,10 +198,12 @@
     <Compile Include="Proxy\UserRoleProxy.cs" />
     <Compile Include="Proxy\VaccineTypeProxy.cs" />
     <Compile Include="ViewModel\Customer.cs" />
+    <Compile Include="ViewModel\CustomerOrdersViewModel.cs" />
     <Compile Include="ViewModel\Distributor.cs" />
     <Compile Include="ViewModel\Hospital.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\Manufacturer.cs" />
+    <Compile Include="ViewModel\MinimumAgeAttribute.cs" />
     <Compile Include="ViewModel\RegisterViewModel.cs" />
     <Compile Include="ViewModel\User.cs" />
     <Compile Include="ViewModel\UserRole.cs" />

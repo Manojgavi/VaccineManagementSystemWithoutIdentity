@@ -29,9 +29,23 @@ namespace VaccineManagementSystem.ControllerService
             }
             return vaccineTypeView;
         }
+        public List<Hospital> GetAvailHospitals()
+        {
+            var vaccineTypes = proxy.GetAvailHospitals();
+            List<ViewModel.Hospital> vaccineTypeView = new List<Hospital>();
+            foreach (var vaccineType in vaccineTypes)
+            {
+                vaccineTypeView.Add(AutoMapper.Mapper.Map<Models.Hospital, ViewModel.Hospital>(vaccineType));
+            }
+            return vaccineTypeView;
+        }
         public bool IsInDb(string email)
         {
             return proxy.IsInDb(email);
         }
+        //public List<CustomerOrdersViewModel> GetCustomerOrdersViewModel(string email)
+        //{
+            
+        //}
     }
 }

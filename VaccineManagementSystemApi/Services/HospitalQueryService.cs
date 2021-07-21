@@ -28,6 +28,19 @@ namespace VaccineManagementSystemApi.Services
 
             return hospitalDto;
         }
+        public List<Hospital> GetAvailHospitals()
+        {
+            List<Repository.Entity.Hospital> hospitals = new List<Repository.Entity.Hospital>();
+
+            hospitals = repository.GetAvailHospitals();
+            List<Hospital> hospitalDto = new List<Hospital>();
+            foreach (var hospital in hospitals)
+            {
+                hospitalDto.Add(AutoMapper.Mapper.Map<Repository.Entity.Hospital, Hospital>(hospital));
+            }
+
+            return hospitalDto;
+        }
 
         public Hospital GetHospitalById(int id)
         {

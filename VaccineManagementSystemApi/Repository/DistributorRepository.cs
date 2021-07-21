@@ -71,9 +71,19 @@ namespace VaccineManagementSystemApi.Repository
         }
         public List<string> GetLocations()
         {
-            List<string> hospitals = new List<String>();
-            hospitals=dbContext.Hospitals.Select(m => m.Location).ToList();
-            return hospitals;
+            List<Hospital> hospitals = new List<Hospital>();
+            List<string> users = new List<string>();
+            List<string> locations = new List<string>();
+            users = dbContext.Users.Select(m => m.Email).ToList();
+            hospitals=dbContext.Hospitals.ToList();
+            foreach(var hospital in hospitals)
+            {
+                if(users.Contains(hospital.Email))
+                {
+                    locations.Add(hospital.Location);
+                }
+            }
+            return locations;
         }
         public bool IsInDb(string email)
         {

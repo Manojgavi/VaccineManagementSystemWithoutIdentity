@@ -15,5 +15,6 @@ namespace VaccineManagementSystem.Proxy
         void DeleteHospitalById(int id);
         bool IsInDb(string email);
         Hospital GetHospitalById(int id);
+        List<Hospital> GetAvailHospitals();
     }
 }
