@@ -200,5 +200,6 @@ namespace VaccineManagementSystem.ControllerService
             manufacturerProxy.DeleteManufacturerById(id);
             
         }
+        
     }
 }

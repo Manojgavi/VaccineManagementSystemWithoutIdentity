@@ -39,6 +39,18 @@ namespace VaccineManagementSystem.Proxy
             return customer;
 
         }
+        public List<Customer> GetCustomersByHospitalId(int id)
+        {
+            List<VaccineManagementSystemApi.DTO.Customer> customerDtoList = new List<VaccineManagementSystemApi.DTO.Customer>();
+            customerDtoList = customerQueryService.GetCustomersByHospitalId(id);
+            List<Customer> customer = new List<Customer>();
+            foreach (var customerDto in customerDtoList)
+            {
+                customer.Add(Mapper.Map<VaccineManagementSystemApi.DTO.Customer, Customer>(customerDto));
+            }
+            return customer;
+
+        }
 
         public void EditCustomer(Customer customer)
         {
@@ -55,7 +67,12 @@ namespace VaccineManagementSystem.Proxy
 
             customerCommandService.DeleteCustomerById(id);
         }
+        public void UpdateStatus(int id,int status)
+        {
 
+
+            customerCommandService.UpdateStatus(id,status);
+        }
         public Customer GetCustomerById(int id)
         {
 

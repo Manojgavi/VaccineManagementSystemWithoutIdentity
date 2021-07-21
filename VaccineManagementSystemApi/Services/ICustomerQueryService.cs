@@ -11,5 +11,6 @@ namespace VaccineManagementSystemApi.Services
     {
         Customer GetCustomerById(int id);
         List<Customer> GetAllCustomers();
+        List<Customer> GetCustomersByHospitalId(int id);
     }
 }

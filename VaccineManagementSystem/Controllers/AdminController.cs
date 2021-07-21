@@ -164,5 +164,16 @@ namespace VaccineManagementSystem.Controllers
             return RedirectToAction("Index", "Admin");
 
         }
+        public ActionResult Users()
+        {
+            List<Models.User> users = new List<Models.User>();
+            users=accountControllerService.GetUsers();
+            return View(users);
+        }
+        public ActionResult DeleteUsers(int id)
+        {
+            accountControllerService.DeleteUserById(id);
+            return RedirectToAction("Users");
+        }
     }
 }

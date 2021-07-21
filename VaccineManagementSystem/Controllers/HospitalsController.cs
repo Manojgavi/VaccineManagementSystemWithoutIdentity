@@ -1,9 +1,12 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Web.Mvc;
 using VaccineManagementSystem.ControllerService;
 using VaccineManagementSystem.ViewModel;
 
 namespace VaccineManagementSystem.Controllers
 {
+    [Authorize(Roles = "Hospital")]
     public class HospitalsController : Controller
     {
         private readonly IHospitalControllerService hospitalControllerService;
@@ -11,11 +14,13 @@ namespace VaccineManagementSystem.Controllers
         {
             this.hospitalControllerService = hospitalControllerService;
         }
+        [AllowAnonymous]
         public ActionResult Create()
         {
             return View();
         }
         [HttpPost]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Hospital hospital)
         {
@@ -32,7 +37,45 @@ namespace VaccineManagementSystem.Controllers
         }
         public ActionResult CustomerOrders()
         {
-            return View();
+            List<CustomerOrdersViewModel> customerOrders = new List<CustomerOrdersViewModel>();
+            try
+            {
+                customerOrders = hospitalControllerService.GetCustomerOrdersViewModel(Session["UserEmail"].ToString());
+                return View(customerOrders);
+
+            }
+            catch(NullReferenceException)
+            {
+
+                return RedirectToAction("Logout", "Accounts");
+            }
+            
+        }
+        public ActionResult UpdateStatus()
+        {
+            List<Models.Customer> customers = new List<Models.Customer>();
+            try
+            {
+                customers = hospitalControllerService.GetCustomersForHospital(Session["UserEmail"].ToString());
+                return View(customers);
+
+            }
+             catch (NullReferenceException)
+            {
+
+                return RedirectToAction("Logout", "Accounts");
+            }
+            
+        }
+        public ActionResult Vaccinated(int id)
+        {
+            hospitalControllerService.Vaccinated(id, 1);
+            return RedirectToAction("UpdateStatus");
+        }
+        public ActionResult NotShownUp(int id)
+        {
+            hospitalControllerService.Vaccinated(id, 2);
+            return RedirectToAction("UpdateStatus");
         }
     }
 }

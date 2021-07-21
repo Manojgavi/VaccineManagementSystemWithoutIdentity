@@ -14,5 +14,7 @@ namespace VaccineManagementSystem.Proxy
         void EditCustomer(Customer customer);
         void DeleteCustomerById(int id);
         Customer GetCustomerById(int id);
+        List<Customer> GetCustomersByHospitalId(int id);
+        void UpdateStatus(int id, int status);
     }
 }

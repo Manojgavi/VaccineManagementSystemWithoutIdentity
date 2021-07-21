@@ -50,6 +50,14 @@ namespace VaccineManagementSystemApi.Services
             hospitalDto = AutoMapper.Mapper.Map<Repository.Entity.Hospital, Hospital>(hospital);
             return hospitalDto;
         }
+        public Hospital GetHospitalByEmail(string email)
+        {
+            Repository.Entity.Hospital hospital = new Repository.Entity.Hospital();
+            Hospital hospitalDto = new Hospital();
+            hospital = repository.GetHospitalByEmail(email);
+            hospitalDto = AutoMapper.Mapper.Map<Repository.Entity.Hospital, Hospital>(hospital);
+            return hospitalDto;
+        }
         public bool IsInDb(string email)
         {
             return repository.IsInDb(email);

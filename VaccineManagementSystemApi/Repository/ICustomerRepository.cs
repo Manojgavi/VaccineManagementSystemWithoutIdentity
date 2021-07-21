@@ -14,5 +14,7 @@ namespace VaccineManagementSystemApi.Repository
         void PostCustomer(Customer customer);
         void DeleteCustomerById(int id);
         void EditCustomer(Customer customer);
+        List<Customer> GetCustomersByHospitalId(int id);
+        void UpdateStatus(int id, int status);
     }
 }

@@ -14,5 +14,7 @@ namespace VaccineManagementSystem.ControllerService
         ViewModel.RegisterViewModel Register();
        bool Login(ViewModel.LoginViewModel loginViewModel);
         void PostUSer(ViewModel.RegisterViewModel registerViewModel);
+        List<Models.User> GetUsers();
+        void DeleteUserById(int id);
     }
 }

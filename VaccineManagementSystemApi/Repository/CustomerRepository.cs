@@ -52,10 +52,31 @@ namespace VaccineManagementSystemApi.Repository
             
 
         }
+        public List<Customer> GetCustomersByHospitalId(int id)
+        {
+            var customers = dbContext.Customers.Where(m => m.Status == "Registered"&&m.HospitalId==id).ToList();
+
+            return customers;
+        }
         public void EditCustomer(Customer customer)
         {
             dbContext.Entry(customer).State = EntityState.Modified;
             dbContext.SaveChanges();
+        }
+        public void UpdateStatus(int id, int status)
+        {
+            Customer customer = new Customer();
+            customer = dbContext.Customers.Find(id);
+            if(status==1)
+            {
+                customer.Status = "Vaccinated";
+            }
+            else if(status==2)
+            {
+                customer.Status = "NotShownUp";
+            }
+            dbContext.SaveChanges();
+            
         }
     }
 }

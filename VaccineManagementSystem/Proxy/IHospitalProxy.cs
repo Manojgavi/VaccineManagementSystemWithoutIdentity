@@ -16,5 +16,6 @@ namespace VaccineManagementSystem.Proxy
         bool IsInDb(string email);
         Hospital GetHospitalById(int id);
         List<Hospital> GetAvailHospitals();
+        Hospital GetHospitalByEmail(string email);
     }
 }

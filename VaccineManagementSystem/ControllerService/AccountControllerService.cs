@@ -18,6 +18,16 @@ namespace VaccineManagementSystem.ControllerService
             this.userProxy = userProxy;
             this.userRoleProxy = userRoleProxy;
         }
+        public List<Models.User> GetUsers()
+        {
+            List<Models.User> users = new List<Models.User>();
+            users = userProxy.GetAllUsers();
+            return users;
+        }
+        public void DeleteUserById(int id)
+        {
+            userProxy.DeleteUserById(id);
+        }
         public bool Login(LoginViewModel loginViewModel)
         {
             int i = 0;

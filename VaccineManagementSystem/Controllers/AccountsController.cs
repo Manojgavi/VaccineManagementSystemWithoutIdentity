@@ -69,6 +69,7 @@ namespace VaccineManagementSystem.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
+            Session["UserEmail"] = "";
             return RedirectToAction("Index","Home");
         }
         public ActionResult Redirect()
@@ -81,7 +82,7 @@ namespace VaccineManagementSystem.Controllers
             }
             else if (roleProvider.IsUserInRole(userEmail, "Hospital"))
             {
-                return RedirectToAction("Create", "Hospitals");
+                return RedirectToAction("CustomerOrders", "Hospitals");
             }
             else if (roleProvider.IsUserInRole(userEmail, "Distributor"))
             {

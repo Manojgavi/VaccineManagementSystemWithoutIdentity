@@ -78,6 +78,16 @@ namespace VaccineManagementSystem.Proxy
 
             return hospital;
         }
+        public Hospital GetHospitalByEmail(string email)
+        {
+
+            var hospitalDto = hospitalQueryService.GetHospitalByEmail(email);
+            Hospital hospital = new Hospital();
+
+            hospital = Mapper.Map<VaccineManagementSystemApi.DTO.Hospital, Hospital>(hospitalDto);
+
+            return hospital;
+        }
         public bool IsInDb(string email)
         {
             return hospitalQueryService.IsInDb(email);

@@ -29,6 +29,19 @@ namespace VaccineManagementSystemApi.Services
 
             return customerDto;
         }
+        public List<Customer> GetCustomersByHospitalId(int id)
+        {
+            List<Repository.Entity.Customer> customers = new List<Repository.Entity.Customer>();
+
+            customers = repository.GetCustomersByHospitalId(id);
+            List<Customer> customerDto = new List<Customer>();
+            foreach (var customer in customers)
+            {
+                customerDto.Add(AutoMapper.Mapper.Map<Repository.Entity.Customer, Customer>(customer));
+            }
+
+            return customerDto;
+        }
 
         public Customer GetCustomerById(int id)
         {

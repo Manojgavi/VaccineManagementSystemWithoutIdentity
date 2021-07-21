@@ -19,6 +19,10 @@ namespace VaccineManagementSystemApi.Services
         {
             repository.DeleteCustomerById(id);
         }
+        public void UpdateStatus(int id,int status)
+        {
+            repository.UpdateStatus(id,status);
+        }
 
         public void EditCustomer(Customer customerDto)
         {

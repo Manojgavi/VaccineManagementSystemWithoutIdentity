@@ -84,6 +84,12 @@ namespace VaccineManagementSystemApi.Repository
             dbContext.Entry(hospital).State = EntityState.Modified;
             dbContext.SaveChanges();
         }
+        public Hospital GetHospitalByEmail(string email)
+        {
+            Hospital obj = new Hospital();
+            obj = dbContext.Hospitals.FirstOrDefault(m => m.Email == email);
+            return obj;
+        }
         public bool IsInDb(string email)
         {
             var obj = dbContext.Hospitals.FirstOrDefault(m => m.Email == email);
