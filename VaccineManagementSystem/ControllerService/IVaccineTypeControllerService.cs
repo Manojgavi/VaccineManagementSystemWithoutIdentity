@@ -10,6 +10,8 @@ namespace VaccineManagementSystem.ControllerService
     {
         List<ViewModel.VaccineType> GetVaccineTypes();
         void PostVaccineType(VaccineType vaccineType);
+        void DeleteVaccineTypeById(int id);
+        VaccineType GetVaccineTypeById(int id);
 
     }
 }

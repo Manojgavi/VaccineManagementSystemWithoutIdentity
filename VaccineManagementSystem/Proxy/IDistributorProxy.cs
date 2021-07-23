@@ -11,11 +11,13 @@ namespace VaccineManagementSystem.Proxy
     {
         void PostDistributor(Distributor distributor);
         List<Distributor> GetAllDistributors();
+        Distributor GetDistributorByEmail(string email);
         void EditDistributor(Distributor distributor);
         List<string> GetLocations();
         void DeleteDistributorById(int id);
         Distributor GetDistributorById(int id);
         bool IsInDb(string email);
         List<Distributor> GetAvailDistributors();
+        void UpdateHospitalOrdersById(int id);
     }
 }

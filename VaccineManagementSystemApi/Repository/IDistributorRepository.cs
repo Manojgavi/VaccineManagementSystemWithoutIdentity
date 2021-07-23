@@ -16,6 +16,8 @@ namespace VaccineManagementSystemApi.Repository
         void EditDistributor(Distributor distributor);
         List<string> GetLocations();
         bool IsInDb(string email);
+        Distributor GetDistributorByEmail(string email);
         List<Distributor> GetAvailDistributors();
+        void UpdateHospitalOrdersById(int id);
     }
 }

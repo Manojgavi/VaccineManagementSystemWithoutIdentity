@@ -48,8 +48,15 @@ namespace VaccineManagementSystemApi.Services
             Repository.Entity.Customer customer = new Repository.Entity.Customer();
             Customer customerDto = new Customer();
             customer = repository.GetCustomerById(id);
-            customerDto = AutoMapper.Mapper.Map<Repository.Entity.Customer, Customer>(customer);
-            return customerDto;
+            if (!string.IsNullOrWhiteSpace(customer.Name))
+            {
+                customerDto = AutoMapper.Mapper.Map<Repository.Entity.Customer, Customer>(customer);
+                return customerDto;
+            }
+            else
+            {
+                return null;
+            }            
         }
     }
 }

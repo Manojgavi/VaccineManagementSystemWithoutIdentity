@@ -39,6 +39,28 @@ namespace VaccineManagementSystem.Proxy
             return manufacturer;
 
         }
+        public List<Manufacturer> GetManufacturersByVaccineId(int id)
+        {
+            List<VaccineManagementSystemApi.DTO.Manufacturer> manufacturerDtoList = new List<VaccineManagementSystemApi.DTO.Manufacturer>();
+            manufacturerDtoList = manufacturerQueryService.GetManufacturersByVaccineId(id);
+            List<Manufacturer> manufacturer = new List<Manufacturer>();
+            foreach (var manufacturerDto in manufacturerDtoList)
+            {
+                manufacturer.Add(Mapper.Map<VaccineManagementSystemApi.DTO.Manufacturer, Manufacturer>(manufacturerDto));
+            }
+            return manufacturer;
+
+        }
+        public Manufacturer GetManufacturerByEmail(string email)
+        {
+
+            var manufacturerDto = manufacturerQueryService.GetManufacturerByEmail(email);
+            Manufacturer manufacturer = new Manufacturer();
+
+            manufacturer = Mapper.Map<VaccineManagementSystemApi.DTO.Manufacturer, Manufacturer>(manufacturerDto);
+
+            return manufacturer;
+        }
 
         public void EditManufacturer(Manufacturer manufacturer)
         {

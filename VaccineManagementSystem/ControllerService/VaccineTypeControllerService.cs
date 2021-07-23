@@ -24,6 +24,18 @@ namespace VaccineManagementSystem.ControllerService
             }
             return vaccineTypeView;
         }
+        public void DeleteVaccineTypeById(int id)
+        {
+            proxy.DeleteVaccineTypeById(id);
+        }
+        public VaccineType GetVaccineTypeById(int id)
+        {
+            VaccineType vaccineTypeView = new VaccineType();
+            Models.VaccineType vaccineType = new Models.VaccineType();
+            vaccineType = proxy.GetVaccineTypeById(id);
+            vaccineTypeView = AutoMapper.Mapper.Map<Models.VaccineType, VaccineType>(vaccineType);
+            return vaccineTypeView;
+        }
 
         public void PostVaccineType(VaccineType vaccineType)
         {

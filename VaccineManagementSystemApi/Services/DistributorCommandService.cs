@@ -33,6 +33,10 @@ namespace VaccineManagementSystemApi.Services
             distributor = AutoMapper.Mapper.Map<Distributor, Repository.Entity.Distributor>(distributorDto);
             repository.PostDistributor(distributor);
         }
-        
+
+        public void UpdateHospitalOrdersById(int id)
+        {
+            repository.UpdateHospitalOrdersById(id);
+        }
     }
 }

@@ -31,7 +31,8 @@ namespace VaccineManagementSystemApi.Repository.Context
         public virtual DbSet<UserRole> UserRoles { get; set; }
         public virtual DbSet<HospitalOrders> HospitalOrders { get; set; }
         public virtual DbSet<HospitalVaccines> HospitalVaccines { get; set; }
-
+        public virtual DbSet<DistributorOrders> DistributorOrders { get; set; }
+        public virtual DbSet<DistributorVaccines> DistributorVaccines { get; set; }
 
     }
 

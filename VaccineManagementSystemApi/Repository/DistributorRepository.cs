@@ -106,6 +106,13 @@ namespace VaccineManagementSystemApi.Repository
             }
             return locations;
         }
+        public Distributor GetDistributorByEmail(string email)
+        {
+            Distributor obj = new Distributor();
+            obj = dbContext.Distributors.FirstOrDefault(m => m.Email == email);
+            return obj;
+        }
+       
         public bool IsInDb(string email)
         {
             var obj = dbContext.Distributors.FirstOrDefault(m => m.Email == email);
@@ -119,5 +126,11 @@ namespace VaccineManagementSystemApi.Repository
             }
         }
 
+        public void UpdateHospitalOrdersById(int id)
+        {
+            HospitalOrders hospitalOrders=dbContext.HospitalOrders.Find(id);
+            hospitalOrders.Status = "Delivered";
+            dbContext.SaveChanges();
+        }
     }
 }

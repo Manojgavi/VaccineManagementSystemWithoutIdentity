@@ -41,6 +41,14 @@ namespace VaccineManagementSystemApi.Services
 
             return distributorDto;
         }
+        public Distributor GetDistributorByEmail(string email)
+        {
+            Repository.Entity.Distributor distributor = new Repository.Entity.Distributor();
+            Distributor distributorDto = new Distributor();
+            distributor = repository.GetDistributorByEmail(email);
+            distributorDto = AutoMapper.Mapper.Map<Repository.Entity.Distributor, Distributor>(distributor);
+            return distributorDto;
+        }
 
         public Distributor GetDistributorById(int id)
         {

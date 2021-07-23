@@ -77,6 +77,7 @@ namespace VaccineManagementSystem
             container.RegisterType<IOrdersRepository, OrdersRepository>();
             container.RegisterType<IOrdersCommandService, OrdersCommandService>();
             container.RegisterType<IOrdersProxy, OrdersProxy>();
+            container.RegisterType<IOrdersQueryService, OrdersQueryService>();
         }
     }
 }

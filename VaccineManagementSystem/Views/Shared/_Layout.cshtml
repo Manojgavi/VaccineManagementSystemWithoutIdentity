@@ -7,7 +7,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
+<body >
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -21,16 +21,20 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    
-                    @if(User.Identity.IsAuthenticated)
-                        {
-                            <li>@Html.ActionLink("Logout","Logout","Accounts")</li>
-                        }
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Manufacturer", "DistributorOrders", "Manufacturers")</li>
+                        <li>@Html.ActionLink("Distributor", "HospitalOrders", "Distributors")</li>
+                        <li>@Html.ActionLink("Hospital", "CustomerOrders", "Hospitals")</li>
+
+                        <li>@Html.ActionLink("Logout", "Logout", "Accounts")</li>
+                    }
                     else
-                        {
-                            <li>@Html.ActionLink("Register", "Index", "Accounts")</li>
-                            <li>@Html.ActionLink("Login", "Login", "Accounts")</li>
-                        }   
+                    {
+                        <li>@Html.ActionLink("Register", "Index", "Accounts")</li>
+                        <li>@Html.ActionLink("Login", "Login", "Accounts")</li>
+                    }
                 </ul>
 
             </div>

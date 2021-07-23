@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using VaccineManagementSystem.ControllerService;
@@ -111,6 +113,9 @@ namespace VaccineManagementSystem.Controllers
             if (ModelState.IsValid)
             {
                 accountControllerService.PostUSer(registerViewModel);
+                #region mail sending
+                SendVerificationLinkEmail(registerViewModel.Email);
+                #endregion
 
                 return RedirectToAction("Index", "Admin");
             }
@@ -174,6 +179,37 @@ namespace VaccineManagementSystem.Controllers
         {
             accountControllerService.DeleteUserById(id);
             return RedirectToAction("Users");
+        }
+        [NonAction]
+        public void SendVerificationLinkEmail(string Email)
+        {
+            var fromEmail = new MailAddress("greeshother@gmail.com");
+            var toEmail = new MailAddress(Email);
+            var fromEmailPassword = "othergreesh";
+            string subject = "Your account has been activated";
+
+            string body = "<br/><br/>We are excited to tell you that your account is successfully created in our website. You can now login with the credentials given while registering";
+
+            var smtp = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(fromEmail.Address, fromEmailPassword)
+
+            };
+
+            using (var message = new MailMessage(fromEmail, toEmail)
+            {
+                Subject = subject,
+                Body = body,
+                IsBodyHtml = true
+            })
+
+                smtp.Send(message);
+
         }
     }
 }

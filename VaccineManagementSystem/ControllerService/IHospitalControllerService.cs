@@ -12,7 +12,7 @@ namespace VaccineManagementSystem.ControllerService
         List<Hospital> GetHospitals();
         bool IsInDb(string email);
         List<Hospital> GetAvailHospitals();
-        List<Models.Customer> GetCustomersForHospital(string email);
+        List<CustomersDataViewModel> GetCustomersForHospital(string email);
         void Vaccinated(int id, int status);
         HospitalOrdersViewModel HospitalOrder();
         void PostHospitalOrders(HospitalOrdersViewModel hospitalOrdersViewModel, string email);

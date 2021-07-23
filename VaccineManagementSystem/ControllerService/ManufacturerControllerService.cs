@@ -11,12 +11,16 @@ namespace VaccineManagementSystem.ControllerService
     {
         private readonly IManufacturerProxy manufacturerProxy;
         private readonly IVaccineTypeControllerService vaccineTypeControllerService;
+        private readonly IOrdersProxy ordersProxy;
+        private readonly IDistributorProxy distributorProxy;
         public ManufacturerControllerService()
         {
 
         }
-        public ManufacturerControllerService(IManufacturerProxy manufacturerProxy, IVaccineTypeControllerService vaccineTypeControllerService)
+        public ManufacturerControllerService(IDistributorProxy distributorProxy,IOrdersProxy ordersProxy,IManufacturerProxy manufacturerProxy, IVaccineTypeControllerService vaccineTypeControllerService)
         {
+            this.distributorProxy = distributorProxy;
+            this.ordersProxy = ordersProxy;
             this.manufacturerProxy = manufacturerProxy;
             this.vaccineTypeControllerService = vaccineTypeControllerService;
         }
@@ -36,6 +40,42 @@ namespace VaccineManagementSystem.ControllerService
         public bool IsInDb(string email)
         {
             return manufacturerProxy.IsInDb(email);
+        }
+        public List<ManufacturerOrdersViewModel> GetManufacturerOrders(string email)
+        {
+            List<ManufacturerOrdersViewModel> viewModels = new List<ManufacturerOrdersViewModel>();
+            Models.Manufacturer manufacturer = manufacturerProxy.GetManufacturerByEmail(email);
+            List<Models.DistributorOrders> distributorOrders = new List<Models.DistributorOrders>();
+            distributorOrders = ordersProxy.GetOrdersForManufacturer(manufacturer.Id);
+            List<Models.Distributor> distributors = new List<Models.Distributor>();
+            distributors = distributorProxy.GetAvailDistributors();
+            var result = (from order in distributorOrders
+                         join distributor in distributors
+                         on order.DistributorId equals distributor.Id
+                         select new
+                         {
+                             DistributorId = distributor.Id,
+                             DistributorName = distributor.Name,
+                             Id = order.Id,
+                             Count = order.Orders
+                         });
+            foreach(var a in result)
+            {
+                ManufacturerOrdersViewModel vm = new ManufacturerOrdersViewModel()
+                {
+                    Id = a.Id,
+                    DistributorName = a.DistributorName,
+                    Count = a.Count,
+
+                };
+                viewModels.Add(vm);
+            }
+            return viewModels;
+        }
+
+        public void UpdateDistributorOrderStatus(int id)
+        {
+            ordersProxy.UpdateDistributorOrderStatus(id);
         }
     }
 }

@@ -10,5 +10,7 @@ namespace VaccineManagementSystemApi.Services
     public interface IOrdersCommandService
     {
         void PlaceHospitalOrder(HospitalOrders hospitalOrders);
+        void PlaceDistributorOrder(DistributorOrders distributorOrders1);
+        void UpdateDistributorOrderStatus(int id);
     }
 }

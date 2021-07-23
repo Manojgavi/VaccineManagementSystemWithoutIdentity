@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VaccineManagementSystem", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VaccineManagementSystemApi", "VaccineManagementSystemApi\VaccineManagementSystemApi.csproj", "{22186A21-0D18-411C-B512-2F133183B20E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VaccinManagementSystem.Test", "VaccinManagementSystem.Test\VaccinManagementSystem.Test.csproj", "{77B6E1BE-AFA7-47DB-889C-1079C20B98C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{22186A21-0D18-411C-B512-2F133183B20E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22186A21-0D18-411C-B512-2F133183B20E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22186A21-0D18-411C-B512-2F133183B20E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77B6E1BE-AFA7-47DB-889C-1079C20B98C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77B6E1BE-AFA7-47DB-889C-1079C20B98C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77B6E1BE-AFA7-47DB-889C-1079C20B98C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77B6E1BE-AFA7-47DB-889C-1079C20B98C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

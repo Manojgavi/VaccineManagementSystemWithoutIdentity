@@ -1,0 +1,50 @@
+﻿@model IEnumerable<VaccineManagementSystem.ViewModel.OrdersFromHospitalVM>
+
+@{
+    ViewBag.Title = "HospitalOrders";
+}
+<body style="background-color:lightcyan;">
+    <h2>HospitalOrders</h2>
+
+    <p>
+        @Html.ActionLink("View Orders by VaccineTypes", "OrdersByVaccineType")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HospitalName)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.VaccineName)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Orders)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HospitalName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.VaccineName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Orders)
+                </td>
+                <td>
+                    @Html.ActionLink("Delivered", "Delivered", new { id = item.Id })
+
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>

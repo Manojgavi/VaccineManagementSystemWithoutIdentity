@@ -11,6 +11,7 @@ namespace VaccineManagementSystemApi.Repository.Entity
         public int Id { get; set; }
         public int Orders { get; set; }
         public int HospitalId { get; set; }
+        public string Status { get; set; }
         public Hospital Hospital { get; set; }
         public int VaccineTypeId { get; set; }
         public VaccineType VaccineType { get; set; }

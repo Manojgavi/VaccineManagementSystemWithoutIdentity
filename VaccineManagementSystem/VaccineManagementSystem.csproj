@@ -177,6 +177,7 @@
     </Compile>
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Distributor.cs" />
+    <Compile Include="Models\DistributorOrders.cs" />
     <Compile Include="Models\Hospital.cs" />
     <Compile Include="Models\HospitalOrders.cs" />
     <Compile Include="Models\HospitalVaccines.cs" />
@@ -203,12 +204,16 @@
     <Compile Include="Proxy\VaccineTypeProxy.cs" />
     <Compile Include="ViewModel\Customer.cs" />
     <Compile Include="ViewModel\CustomerOrdersViewModel.cs" />
+    <Compile Include="ViewModel\CustomersDataViewModel.cs" />
     <Compile Include="ViewModel\Distributor.cs" />
+    <Compile Include="ViewModel\DistributorOrdersViewModel.cs" />
     <Compile Include="ViewModel\Hospital.cs" />
     <Compile Include="ViewModel\HospitalOrdersViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\Manufacturer.cs" />
+    <Compile Include="ViewModel\ManufacturerOrdersViewModel.cs" />
     <Compile Include="ViewModel\MinimumAgeAttribute.cs" />
+    <Compile Include="ViewModel\OrdersFromHospitalVM.cs" />
     <Compile Include="ViewModel\RegisterViewModel.cs" />
     <Compile Include="ViewModel\User.cs" />
     <Compile Include="ViewModel\UserRole.cs" />
@@ -224,6 +229,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\136954.jpg" />
+    <Content Include="Images\covax-safe-effective-free.png" />
     <Content Include="Images\Customer.jpg" />
     <Content Include="Images\distributor.png" />
     <Content Include="Images\hospi.jpg" />
@@ -243,10 +250,13 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Styles\allreg.css" />
     <Content Include="Styles\buttons.css" />
     <Content Include="Styles\FormsSheet.css" />
     <Content Include="Styles\HomeSheet.css" />
+    <Content Include="Styles\ListsAll.css" />
     <Content Include="Styles\LoginAndRegistration.css" />
+    <Content Include="Styles\logstyle.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -276,8 +286,14 @@
     <Content Include="Views\Admin\DeleteManufacturer.cshtml" />
     <Content Include="Views\Hospitals\CustomerOrders.cshtml" />
     <Content Include="Views\Admin\Users.cshtml" />
-    <Content Include="Views\Hospitals\UpdateStatus.cshtml" />
     <Content Include="Views\Hospitals\Orders.cshtml" />
+    <Content Include="Views\Distributors\HospitalOrders.cshtml" />
+    <Content Include="Views\VaccineTypes\Delete.cshtml" />
+    <Content Include="Views\VaccineTypes\Index.cshtml" />
+    <Content Include="Views\Hospitals\UpdateStatus.cshtml" />
+    <Content Include="Views\Distributors\OrdersByVaccineType.cshtml" />
+    <Content Include="Views\Distributors\Orders.cshtml" />
+    <Content Include="Views\Manufacturers\DistributorOrders.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

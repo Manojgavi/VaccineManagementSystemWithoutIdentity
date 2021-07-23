@@ -13,7 +13,10 @@ namespace VaccineManagementSystemApi.Repository
         List<Manufacturer> GetAllManufacturers();
         void PostManufacturer(Manufacturer manufacturer);
         void DeleteManufacturerById(int id);
+        List<Manufacturer> GetManufacturersByVaccineId(int id);
         void EditManufacturer(Manufacturer manufacturer);
         bool IsInDb(string email);
+
+        Manufacturer GetManufacturerByEmail(string email);
     }
 }

@@ -12,5 +12,6 @@ namespace VaccineManagementSystemApi.Services
         void PostDistributor(Distributor distributor);
         void DeleteDistributorById(int id);
         void EditDistributor(Distributor distributor);
+        void UpdateHospitalOrdersById(int id);
     }
 }

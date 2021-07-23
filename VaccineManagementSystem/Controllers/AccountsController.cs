@@ -86,11 +86,11 @@ namespace VaccineManagementSystem.Controllers
             }
             else if (roleProvider.IsUserInRole(userEmail, "Distributor"))
             {
-                return RedirectToAction("Create", "Distributors");
+                return RedirectToAction("HospitalOrders", "Distributors");
             }
             else if (roleProvider.IsUserInRole(userEmail, "Manufacturer"))
             {
-                return RedirectToAction("Create", "Manufacturers");
+                return RedirectToAction("DistributorOrders", "Manufacturers");
             }
 
             return Content("Sorry");

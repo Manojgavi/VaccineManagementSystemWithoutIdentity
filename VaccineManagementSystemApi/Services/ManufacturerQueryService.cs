@@ -28,6 +28,27 @@ namespace VaccineManagementSystemApi.Services
 
             return manufacturerDto;
         }
+        public List<Manufacturer> GetManufacturersByVaccineId(int id)
+        {
+            List<Repository.Entity.Manufacturer> manufacturers = new List<Repository.Entity.Manufacturer>();
+
+            manufacturers = repository.GetManufacturersByVaccineId(id);
+            List<Manufacturer> manufacturerDto = new List<Manufacturer>();
+            foreach (var manufacturer in manufacturers)
+            {
+                manufacturerDto.Add(AutoMapper.Mapper.Map<Repository.Entity.Manufacturer, Manufacturer>(manufacturer));
+            }
+
+            return manufacturerDto;
+        }
+        public Manufacturer GetManufacturerByEmail(string email)
+        {
+            Repository.Entity.Manufacturer manufacturer = new Repository.Entity.Manufacturer();
+            Manufacturer manufacturerDto = new Manufacturer();
+            manufacturer = repository.GetManufacturerByEmail(email);
+            manufacturerDto = AutoMapper.Mapper.Map<Repository.Entity.Manufacturer, Manufacturer>(manufacturer);
+            return manufacturerDto;
+        }
 
         public Manufacturer GetManufacturerById(int id)
         {

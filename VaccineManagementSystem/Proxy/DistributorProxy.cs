@@ -84,9 +84,24 @@ namespace VaccineManagementSystem.Proxy
             locations = distributorQueryService.GetLocations();
             return locations;
         }
+        public Distributor GetDistributorByEmail(string email)
+        {
+
+            var distributorDto = distributorQueryService.GetDistributorByEmail(email);
+            Distributor distributor = new Distributor();
+
+            distributor = Mapper.Map<VaccineManagementSystemApi.DTO.Distributor, Distributor>(distributorDto);
+
+            return distributor;
+        }
         public bool IsInDb(string email)
         {
             return distributorQueryService.IsInDb(email);
+        }
+
+        public void UpdateHospitalOrdersById(int id)
+        {
+            distributorCommandService.UpdateHospitalOrdersById(id);
         }
     }
 }

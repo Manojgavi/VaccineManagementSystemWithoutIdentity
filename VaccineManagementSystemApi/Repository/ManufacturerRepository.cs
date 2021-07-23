@@ -44,7 +44,15 @@ namespace VaccineManagementSystemApi.Repository
 
             return manufacturersNotInDb;
         }
+        public List<Manufacturer> GetManufacturersByVaccineId(int id)
+        {
+            List<Manufacturer> manufacturers = new List<Manufacturer>();
+            
+            manufacturers = dbContext.Manufacturers.Where(m=>m.VaccineTypeId==id).ToList();
+            
 
+            return manufacturers;
+        }
         public Manufacturer GetManufacturerById(int id)
         {
             var manufacturer = dbContext.Manufacturers.SingleOrDefault(m => m.Id == id);
@@ -62,6 +70,12 @@ namespace VaccineManagementSystemApi.Repository
         {
             dbContext.Entry(manufacturer).State = EntityState.Modified;
             dbContext.SaveChanges();
+        }
+        public Manufacturer GetManufacturerByEmail(string email)
+        {
+            Manufacturer obj = new Manufacturer();
+            obj = dbContext.Manufacturers.FirstOrDefault(m => m.Email == email);
+            return obj;
         }
         public bool IsInDb(string email)
         {

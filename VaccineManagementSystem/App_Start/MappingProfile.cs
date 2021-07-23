@@ -40,6 +40,10 @@ namespace VaccineManagementSystem.App_Start
             Mapper.CreateMap<VaccineManagementSystemApi.DTO.Distributor, VaccineManagementSystemApi.Repository.Entity.Distributor>();
             Mapper.CreateMap<VaccineManagementSystemApi.Repository.Entity.HospitalOrders, VaccineManagementSystemApi.DTO.HospitalOrders>();
             Mapper.CreateMap<VaccineManagementSystemApi.DTO.HospitalOrders, VaccineManagementSystemApi.Repository.Entity.HospitalOrders>();
+            Mapper.CreateMap<Models.DistributorOrders, VaccineManagementSystemApi.DTO.DistributorOrders>();
+            Mapper.CreateMap< VaccineManagementSystemApi.DTO.DistributorOrders, Models.DistributorOrders>();
+            Mapper.CreateMap<VaccineManagementSystemApi.Repository.Entity.DistributorOrders, VaccineManagementSystemApi.DTO.DistributorOrders>();
+            Mapper.CreateMap<VaccineManagementSystemApi.DTO.DistributorOrders, VaccineManagementSystemApi.Repository.Entity.DistributorOrders>();
 
 
             Mapper.CreateMap<ViewModel.UserRole, Models.UserRole>();

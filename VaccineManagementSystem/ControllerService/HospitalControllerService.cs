@@ -57,7 +57,7 @@ namespace VaccineManagementSystem.ControllerService
         {
             return proxy.IsInDb(email);
         }
-        public List<Models.Customer> GetCustomersForHospital(string email)
+        public List<CustomersDataViewModel> GetCustomersForHospital(string email)
         {
             List<Models.Customer> customers = new List<Models.Customer>();
             Models.Hospital hospital = new Models.Hospital();
@@ -66,8 +66,43 @@ namespace VaccineManagementSystem.ControllerService
             {
                 customers = customerproxy.GetCustomersByHospitalId(hospital.Id);
             }
+            List<Models.VaccineType> vaccineTypes = new List<Models.VaccineType>();
+            vaccineTypes = vaccineProxy.GetAllVaccineTypes();
+            List<CustomersDataViewModel> customersDataViews = new List<CustomersDataViewModel>();
+            var result = (from customer in customers
+                          join vaccine in vaccineTypes
+                          on customer.VaccineTypeId equals vaccine.Id
+                          select new
+                          {
+                              Id = customer.Id,
+                              Name = customer.Name,
+                              Gender = customer.Gender,
+                              Email = customer.Email,
+                              phoneNumber = customer.PhoneNumber,
+                              Aadhar = customer.AadharNumber,
+                              VaccineId = customer.VaccineTypeId,
+                              VaccineName = vaccine.Name
+                          });
+            List<CustomersDataViewModel> customersDatas = new List<CustomersDataViewModel>();
+            foreach(var customer in result)
+            {
+                CustomersDataViewModel customersData = new CustomersDataViewModel()
+                {
+                    Id = customer.Id,
+                    Name = customer.Name,
+                    Gender = customer.Gender,
+                    Email = customer.Email,
+                    PhoneNumber = customer.phoneNumber,
+                    AadharNumber = customer.Aadhar,
+                    VaccineTypeId = customer.VaccineId,
+                    VaccineName = customer.VaccineName
+
+                };
+                customersDatas.Add(customersData);
+            }
+
             
-            return customers;
+            return customersDatas;
         }
         public List<CustomerOrdersViewModel> GetCustomerOrdersViewModel(string email)
         {
@@ -122,7 +157,8 @@ namespace VaccineManagementSystem.ControllerService
                 HospitalId = hospital.Id,
                 Orders = hospitalOrdersViewModel.Order,
                 VaccineTypeId = hospitalOrdersViewModel.VaccineTypeId,
-                DistributorId = hospitalOrdersViewModel.DistributorId
+                DistributorId = hospitalOrdersViewModel.DistributorId,
+                Status="Ordered"
             };
             ordersProxy.PlaceHospitalOrder(orders);
         }

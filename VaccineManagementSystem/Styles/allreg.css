@@ -1,0 +1,45 @@
+﻿body {
+    
+    background-image: url('../Images/covax-safe-effective-free.png');
+    background-position-y : 20px;
+    
+}
+#buttons {
+    background-color: #d5edef;
+    width: 330px;
+    margin-left: -190px;
+    margin-top: 17px;
+    margin-bottom: 17px;
+    padding-bottom: 50px;
+    height: 100%;
+    border-radius: 10px;
+}
+#buttons li {
+    list-style: none;
+    text-align: center;
+    background-color: #00498D;
+    margin-top: 50px;
+    margin-left: 0px;
+    width: 230px;
+    height: 100px;
+    line-height: 100px;
+    display: block;
+    border-radius: 20px;
+    font-size :large;
+    opacity : 90%;
+    
+    
+}
+    #buttons li a {
+        text-decoration: none;
+        color: #FFFFFF;
+        display: block;
+    }
+
+        #buttons li a:hover {
+            text-decoration: none;
+            color: #000000;
+            background-color: #33B5E5;
+            border-radius : 20px;
+        }
+    
